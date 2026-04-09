@@ -1,59 +1,54 @@
-# BookMyStayApp
-Overview
+## 🏨 Book My Stay – Hotel Booking Management System (v2.1)
 
-This project demonstrates a Hotel Booking Management System built using Core Java and data structures.
-The focus is on understanding core logic, system behavior, and real-world problem solving such as request handling and system consistency.
+## 📌 Overview
+**Book My Stay** is a console-based Hotel Booking Management System built using **Core Java**.  
+This project demonstrates how fundamental **Object-Oriented Programming (OOP)** concepts are applied in real-world software design.
 
-✅ Use Case 1: Application Entry & Welcome Message
-🎯 Goal
+This version (**Use Case 2**) focuses on:
+- Object modeling using abstraction and inheritance
+- Static room availability management
+- Clear separation between domain and system state
 
-To create a clear starting point for the application and demonstrate how a Java program executes.
+---
 
-👤 Actor
-User runs the application via Command Line / IDE
-🔄 Flow
-User runs the program
-JVM invokes main() method
-Application prints welcome message
-Application terminates
-💡 Key Concepts
-Class → Basic unit of Java program
-main() Method → Entry point of execution
-static Keyword → Allows execution without object creation
-Console Output → System.out.println()
-String Literals → Immutable text values
-Method Invocation → Calling methods on objects
-Program Flow → Top-to-bottom execution
-JavaDoc Comments → Code documentation
-Annotations → @author, @version
-🛠 Requirements
-Create a Java class
-Implement main() method
-Print welcome message
-Show app name & version
-Add JavaDoc comments
-Ensure error-free execution
-💻 Sample Code
-/**
-* Book My Stay App - Entry Point
-* @author Student
-* @version 1.0
-  */
-  public class UseCase1HotelBookingApp {
+## 🎯 Use Case 2: Basic Room Types & Static Availability
 
-  public static void main(String[] args) {
-  System.out.println("Welcome to Book My Stay App!");
-  System.out.println("Hotel Booking System v1.0");
-  }
-  }
-  ▶️ How to Run
-  javac UseCase1HotelBookingApp.java
-  java UseCase1HotelBookingApp
-  🎯 Output
-  Welcome to Book My Stay App!
-  Hotel Booking System v1.0
-  🚀 Benefits
-  Clear application entry point
-  Easy debugging
-  Structured program flow
-  Foundation for future features
+### 🧑‍💻 Actor
+User executes the program to view predefined room types and their availability.
+
+### 🔄 Flow
+1. User runs the application
+2. Room objects are initialized
+3. Availability is stored using simple variables
+4. Room details and availability are displayed
+5. Application terminates
+
+---
+
+## 🧠 Concepts Implemented
+
+### 🔹 Abstraction
+An abstract class `Room` defines common attributes:
+- Room type
+- Number of beds
+- Size
+- Price
+
+### 🔹 Inheritance
+Concrete classes extend `Room`:
+- `SingleRoom`
+- `DoubleRoom`
+- `SuiteRoom`
+
+### 🔹 Polymorphism
+All room objects are handled using the `Room` reference type.
+
+### 🔹 Encapsulation
+Room properties are private and accessed via getter methods.
+
+### 🔹 Static Availability
+Room availability is managed using simple variables:
+```java
+int singleRoomAvailable = 5;
+int doubleRoomAvailable = 3;
+int suiteRoomAvailable = 2;
