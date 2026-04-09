@@ -1,43 +1,43 @@
-# 🏨 Book My Stay – Hotel Booking Management System (v5.0)
+git add .🏨 Book My Stay – Hotel Booking Management System (v6.0)
 
 ## 📌 Overview
-**Book My Stay** is a console-based Hotel Booking Management System built using **Core Java**.  
-The project demonstrates how **data structures and object-oriented design** are applied to solve real-world software challenges.
+**Book My Stay** is a console-based Hotel Booking Management System developed using **Core Java**.  
+The project demonstrates how **object-oriented programming and data structures** are applied to solve real-world challenges such as fair request handling, inventory consistency, and prevention of double-booking.
 
-This version (**Use Case 5**) focuses on:
-- Handling multiple booking requests
-- Ensuring fairness using a Queue (FIFO)
-- Decoupling request intake from booking allocation
+This version (**Use Case 6**) focuses on:
+- Booking confirmation and room allocation
+- Preventing double-booking using Set
+- Maintaining consistency between booking and inventory
 
 ---
 
-## 🎯 Use Case 5: Booking Request (First-Come-First-Served)
+## 🎯 Use Case 6: Reservation Confirmation & Room Allocation
 
 ### 🧑‍💻 Actors
-- **Reservation** – Represents a guest’s booking request
-- **BookingRequestQueue** – Manages incoming requests in order
+- **BookingService** – Processes booking requests and allocates rooms
+- **RoomInventory** – Maintains and updates room availability
 
 ---
 
 ## 🔄 Flow
-1. Guest submits a booking request
-2. Request is added to the queue
-3. Requests are stored in arrival order
-4. Queue maintains FIFO processing order
-5. Requests wait for allocation
-6. No inventory update occurs at this stage
+1. Booking request is dequeued from the queue (FIFO)
+2. System checks room availability
+3. Unique room ID is generated
+4. Room ID is validated against existing allocations
+5. Inventory is updated immediately
+6. Reservation is confirmed
 
 ---
 
 ## 🧠 Concepts Implemented
 
-### 🔹 Problem of Simultaneous Requests
-During peak demand:
-- Multiple requests arrive at the same time
-- Without ordering → unfair booking
+### 🔹 Problem of Double Booking
+Without control:
+- Same room may be assigned to multiple guests
+- Leads to inconsistent system state
 
 ---
 
-### 🔹 Queue Data Structure
+### 🔹 Set (Uniqueness Enforcement)
 ```java
-Queue<Reservation> queue = new LinkedList<>();git add .
+Set<String> allocatedRoomIds = new HashSet<>();
