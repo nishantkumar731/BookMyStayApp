@@ -1,43 +1,45 @@
-git add .🏨 Book My Stay – Hotel Booking Management System (v6.0)
+
+# 🏨 Book My Stay – Hotel Booking Management System (v7.0)
 
 ## 📌 Overview
-**Book My Stay** is a console-based Hotel Booking Management System developed using **Core Java**.  
-The project demonstrates how **object-oriented programming and data structures** are applied to solve real-world challenges such as fair request handling, inventory consistency, and prevention of double-booking.
+**Book My Stay** is a console-based Hotel Booking Management System built using **Core Java**.  
+The project demonstrates how **object-oriented programming and data structures** are used to solve real-world challenges such as booking management, inventory consistency, and prevention of double-booking.
 
-This version (**Use Case 6**) focuses on:
-- Booking confirmation and room allocation
-- Preventing double-booking using Set
-- Maintaining consistency between booking and inventory
+This version (**Use Case 7**) focuses on:
+- Adding optional services to reservations
+- Extending system functionality without modifying core booking logic
+- Maintaining clean separation between core and optional features
 
 ---
 
-## 🎯 Use Case 6: Reservation Confirmation & Room Allocation
+## 🎯 Use Case 7: Add-On Service Selection
 
 ### 🧑‍💻 Actors
-- **BookingService** – Processes booking requests and allocates rooms
-- **RoomInventory** – Maintains and updates room availability
+- **Guest** – Selects additional services
+- **AddOnService** – Represents an optional service
+- **AddOnServiceManager** – Manages services linked to reservations
 
 ---
 
 ## 🔄 Flow
-1. Booking request is dequeued from the queue (FIFO)
-2. System checks room availability
-3. Unique room ID is generated
-4. Room ID is validated against existing allocations
-5. Inventory is updated immediately
-6. Reservation is confirmed
+1. Guest selects one or more add-on services
+2. Services are stored in a list
+3. Services are mapped to a reservation ID
+4. Additional cost is calculated
+5. Core booking and inventory remain unchanged
 
 ---
 
 ## 🧠 Concepts Implemented
 
-### 🔹 Problem of Double Booking
-Without control:
-- Same room may be assigned to multiple guests
-- Leads to inconsistent system state
+### 🔹 Business Extensibility
+- New features (services) added without modifying booking logic
+- Demonstrates scalable system design
 
 ---
 
-### 🔹 Set (Uniqueness Enforcement)
+### 🔹 One-to-Many Relationship
+- One reservation → multiple services
+
 ```java
-Set<String> allocatedRoomIds = new HashSet<>();
+Map<String, List<AddOnService>> serviceMap;
