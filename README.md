@@ -1,54 +1,42 @@
-## 🏨 Book My Stay – Hotel Booking Management System (v2.1)
+## 🏨 Book My Stay – Hotel Booking Management System (v3.1)
 
 ## 📌 Overview
 **Book My Stay** is a console-based Hotel Booking Management System built using **Core Java**.  
-This project demonstrates how fundamental **Object-Oriented Programming (OOP)** concepts are applied in real-world software design.
+This project demonstrates how **data structures and object-oriented design** are applied to solve real-world software engineering problems.
 
-This version (**Use Case 2**) focuses on:
-- Object modeling using abstraction and inheritance
-- Static room availability management
-- Clear separation between domain and system state
+This version (**Use Case 3**) focuses on:
+- Centralized inventory management
+- Efficient state handling using `HashMap`
+- Eliminating inconsistencies caused by scattered variables
 
 ---
 
-## 🎯 Use Case 2: Basic Room Types & Static Availability
+## 🎯 Use Case 3: Centralized Room Inventory Management
 
 ### 🧑‍💻 Actor
-User executes the program to view predefined room types and their availability.
+`RoomInventory` – responsible for managing and providing room availability across the system.
 
-### 🔄 Flow
-1. User runs the application
-2. Room objects are initialized
-3. Availability is stored using simple variables
-4. Room details and availability are displayed
-5. Application terminates
+---
+
+## 🔄 Flow
+1. Inventory component is initialized
+2. Room types are registered with availability
+3. Availability is stored in a centralized `HashMap`
+4. Availability is accessed and updated via methods
+5. Inventory state is displayed
 
 ---
 
 ## 🧠 Concepts Implemented
 
-### 🔹 Abstraction
-An abstract class `Room` defines common attributes:
-- Room type
-- Number of beds
-- Size
-- Price
+### 🔹 Problem of Scattered State
+Previously, availability was stored in separate variables:
+- Difficult to manage
+- Error-prone
+- Not scalable
 
-### 🔹 Inheritance
-Concrete classes extend `Room`:
-- `SingleRoom`
-- `DoubleRoom`
-- `SuiteRoom`
+---
 
-### 🔹 Polymorphism
-All room objects are handled using the `Room` reference type.
-
-### 🔹 Encapsulation
-Room properties are private and accessed via getter methods.
-
-### 🔹 Static Availability
-Room availability is managed using simple variables:
+### 🔹 HashMap (Core Concept)
 ```java
-int singleRoomAvailable = 5;
-int doubleRoomAvailable = 3;
-int suiteRoomAvailable = 2;
+HashMap<String, Integer> inventory;
