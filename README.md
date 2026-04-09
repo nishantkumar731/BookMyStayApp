@@ -1,45 +1,44 @@
 
-# 🏨 Book My Stay – Hotel Booking Management System (v7.0)
+# 🏨 Book My Stay – Hotel Booking Management System (v8.0)
 
 ## 📌 Overview
 **Book My Stay** is a console-based Hotel Booking Management System built using **Core Java**.  
-The project demonstrates how **object-oriented programming and data structures** are used to solve real-world challenges such as booking management, inventory consistency, and prevention of double-booking.
+The project demonstrates how **object-oriented programming and data structures** solve real-world challenges such as booking management, inventory consistency, fairness, and system scalability.
 
-This version (**Use Case 7**) focuses on:
-- Adding optional services to reservations
-- Extending system functionality without modifying core booking logic
-- Maintaining clean separation between core and optional features
+This version (**Use Case 8**) focuses on:
+- Tracking booking history
+- Generating reports for administrative use
+- Maintaining an audit trail of confirmed reservations
 
 ---
 
-## 🎯 Use Case 7: Add-On Service Selection
+## 🎯 Use Case 8: Booking History & Reporting
 
 ### 🧑‍💻 Actors
-- **Guest** – Selects additional services
-- **AddOnService** – Represents an optional service
-- **AddOnServiceManager** – Manages services linked to reservations
+- **Admin** – Reviews booking history and reports
+- **BookingHistory** – Stores confirmed reservations
+- **BookingReportService** – Generates reports
 
 ---
 
 ## 🔄 Flow
-1. Guest selects one or more add-on services
-2. Services are stored in a list
-3. Services are mapped to a reservation ID
-4. Additional cost is calculated
-5. Core booking and inventory remain unchanged
+1. Booking is successfully confirmed
+2. Reservation is added to booking history
+3. History maintains records in insertion order
+4. Admin requests reports
+5. Data is retrieved and displayed
+6. Stored data remains unchanged
 
 ---
 
 ## 🧠 Concepts Implemented
 
-### 🔹 Business Extensibility
-- New features (services) added without modifying booking logic
-- Demonstrates scalable system design
+### 🔹 Operational Visibility
+- Enables tracking of past bookings
+- Helps analyze system behavior
 
 ---
 
-### 🔹 One-to-Many Relationship
-- One reservation → multiple services
-
+### 🔹 List Data Structure
 ```java
-Map<String, List<AddOnService>> serviceMap;
+List<Reservation> bookingHistory;
